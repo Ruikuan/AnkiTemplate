@@ -10,7 +10,7 @@ if(typeof(config)=="undefined"){
     var config = {};
 
     //audio autoplay
-    config.audio    = true; 
+    config.audio    = false; 
 
     //hide or display hint section
     config.fold     = true;  
@@ -55,7 +55,7 @@ diffVersion()
 <style>
 /*global card style*/
 .card {
-  font-family          : helvetica, arial, sans-serif;
+  font-family          : helvetica, arial, sans-serif;;
   font-size              : 16px;
   text-align             : left;
   color                     : #1d2129; 
@@ -217,7 +217,7 @@ function playAudio() {
     //var base = "http://dict.youdao.com/dictvoice?audio=";
     var base = "http://fanyi.baidu.com/gettts?lan=en&text=";
     var word = document.getElementById("front").innerText;
-    var audioSrc = base + encodeURI(word);
+    var audioSrc = base + encodeURI(word); 
     //check if it is desktop client
     if(typeof(py)=="object"){
     //if it is desktop client, need install addon #498789867 as dependency 
