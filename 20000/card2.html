@@ -1,0 +1,44 @@
+{{FrontSide}}
+
+<!-- back section -->
+{{#glossary}}
+<div class="section">
+<div id="back" class="items">{{glossary}}</div>
+</div>
+{{/glossary}}
+
+{{#notes}}
+<div class="section">
+<div class="bar note" onclick="toggle('note')">Notes</div>
+<div id="note" class="items">{{notes}}</div>
+</div>
+{{/notes}}
+
+{{#sentence}}
+<div class="section">
+<div class="bar sentence" onclick="toggle('sentence')">Sentence</div>
+<div id="sentence" class="backlist items">{{sentence}}</div>
+</div>
+{{/sentence}}
+
+<!-- foot section -->
+<div class="bar foot">
+  <div id="url"><a href={{text:url}}>URL</a></div>
+</div>
+
+<script type="text/javascript">
+//customzied format function
+clearFormat();
+
+//hide hint based on config
+if(config.fold){
+    toggle('note'); 
+    toggle('sentence');
+}
+
+//sample function
+highlightTag()
+
+//sample function
+//makeCloze()
+</script>
