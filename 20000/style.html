@@ -8,7 +8,6 @@ inspired by: https://github.com/ecator/
 //declare global var config
 if(typeof(config)=="undefined"){
     var config = {};
-
     //audio autoplay
     config.audio    = false; 
 
@@ -16,7 +15,7 @@ if(typeof(config)=="undefined"){
     config.fold     = true;  
     
     //other config might be added
-    config.example  = false;  
+    config.example  = true;  
 
     config.version = '1.0';
 
@@ -277,7 +276,7 @@ function clearFormat(){
     removeTag(".word_header");
     removeTag(".item_number");
     if (!config.example){
-        removeTag(".explanation_item>ul");
+       removeTag(".explanation_item>ul");
     }
 }
 
