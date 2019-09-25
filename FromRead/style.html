@@ -135,12 +135,13 @@ inspired by: https://github.com/ecator/
   }
 
   /* Tag highlight style */
-  .hightlight {
+  .highlight {
     font-size: 12px;
     border-radius: 4px;
-    color: #000;
+    color:#d9d9d9;
     padding: 0 3px;
     margin-right: 5px;
+    font-weight: bold;
   }
 
   /* phonetic style */
@@ -151,8 +152,8 @@ inspired by: https://github.com/ecator/
   #sentence b {
     font-weight: normal;
     border-radius: 3px;
-    color: #000;
-    background-color: #999;
+    color: #d9d9d9;
+    background-color: #666;
     padding: 0 3px;
   }
 
@@ -257,8 +258,7 @@ JS helper functions
     [].forEach.call(document.querySelectorAll('#back'), function (div) {
       div.innerHTML = div.innerHTML.replace(/\b[a-z]+\./g, function (symbol) {
         if (colorMap[symbol]) {
-          return '<a class="hightlight" style="background-color:'
-            + colorMap[symbol] + ';" >' + symbol + '</a>';
+          return '<a class="highlight" style="color: #eee; background-color: ' + colorMap[symbol] + ';" >' + symbol + '</a>';
         } else {
           return symbol;
         }

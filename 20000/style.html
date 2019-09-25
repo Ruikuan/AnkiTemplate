@@ -25,8 +25,8 @@ inspired by: https://github.com/ecator/
 </script>
 
 <style>
-/*global card style*/
-.card {
+  /*global card style*/
+  .card {
     font-family: helvetica, arial, sans-serif;
     font-size: 16px;
     text-align: left;
@@ -135,12 +135,13 @@ inspired by: https://github.com/ecator/
   }
 
   /* Tag highlight style */
-  .hightlight {
+  .highlight {
     font-size: 12px;
     border-radius: 4px;
-    color: #000;
+    color: #f2f2f2;
     padding: 0 3px;
     margin-right: 5px;
+    font-weight: bold;
   }
 
   /* phonetic style */
@@ -255,8 +256,7 @@ JS helper functions
     [].forEach.call(document.querySelectorAll('#back'), function (div) {
       div.innerHTML = div.innerHTML.replace(/\b[a-z]+\./g, function (symbol) {
         if (colorMap[symbol]) {
-          return '<a class="hightlight" style="background-color:'
-            + colorMap[symbol] + ';" >' + symbol + '</a>';
+          return '<a class="highlight" style="color: #eee; background-color:' + colorMap[symbol] + ';" >' + symbol + '</a>';
         } else {
           return symbol;
         }
