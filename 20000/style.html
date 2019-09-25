@@ -5,325 +5,267 @@ inspired by: https://github.com/ecator/
 -->
 
 <script type="text/javascript">
-//declare global var config
-if(typeof(config)=="undefined"){
+  //declare global var config
+  if (typeof (config) == "undefined") {
     var config = {};
     //audio autoplay
-    config.audio    = false; 
+    config.audio = false;
 
     //hide or display hint section
-    config.fold     = true;  
-    
+    config.fold = true;
+
     //other config might be added
-    config.example  = true;  
+    config.example = true;
 
     config.version = '1.0';
 
-    window.name= JSON.stringify(config);
-}
-
-//wrap jsonp function
-function getJsonp(url,callback){
- var reqScript=document.createElement("script")
- reqScript.src=url
- window[callback.name]=function(data){callback.handler(data)}
- document.head.appendChild(reqScript)
-}
-
-//detect remote version
-if(!config.remoteVersion){
-    //retrieve remote data
-    var jsonp_url = 'https://raw.githubusercontent.com/ninja33/anki-templates/master/dynamic/jsonp.js';
-    getJsonp(jsonp_url, {name:'loadRemote',handler:function(data){
-        //alert(data.version)
-        config.remoteVersion=data.version;
-        diffVersion()
-    }})
-}
-
-//diff local and remote version
-function diffVersion(){
-    if(config.remoteVersion && (config.remoteVersion!=config.version)){
-        document.getElementById("version").innerHTML="found new version:"+config.remoteVersion+"&nbsp;current version:"+config.version+"&nbsp;<a href='https://github.com/ninja33/anki-templates/raw/master/dynamic/sample.apkg'>click to update</a>"
-    }
-}
-diffVersion()
+    window.name = JSON.stringify(config);
+  }
 
 </script>
 
 <style>
 /*global card style*/
 .card {
-  font-family          : helvetica, arial, sans-serif;;
-  font-size              : 16px;
-  text-align             : left;
-  color                     : #1d2129; 
-  background-color : #e9ebee;
-}
+    font-family: helvetica, arial, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    color: #e9ebee;
+    background-color: #1d2129;
+  }
 
-/*head & foot global style */
-.bar{
-  border-radius           : 3px;
-  border-bottom         : 1px solid #29487d;
-  color                         : #fff; 
-  padding                    : 5px;
-  padding-left              : 35px;
-  text-decoration         : none;
-  font-size                    : 12px;
-  font-weight               : bold; 
-  background               : #365899;
-  background-repeat   : no-repeat;
-  background-position : 5px center;
-}
+  /*head & foot global style */
+  .bar {
+    border-radius: 3px;
+    border-bottom: 1px solid #29487d;
+    color: #ddd;
+    padding: 5px;
+    padding-left: 35px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    background: #365899;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+  }
 
-.bar #url a{
-  text-decoration  : none;
-  font-size             : 12px;
-  color                   : #fff;
-  font-weight        : bold;
-}
+  .bar #url a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #fff;
+    font-weight: bold;
+  }
 
-/*head style*/
-.config{
-  background-image : url(_toggles.png); 
-}
+  /*head style*/
+  .config {
+    background-image: url(_toggles.png);
+  }
 
-.head{
-  background-image : url(_search.png)
-}
-.back{
-  background-image : url(_bulb.png)
-}
-.note{
-  background-image : url(_pencil.png)
-}
-.sentence{
-  background-image : url(_clipboard.png)
-}
-/*foot style*/
-.foot{
-  background-image : url(_cloud.png)  
-}
+  .head {
+    background-image: url(_search.png)
+  }
 
-/* section global style */
-.section {
-  border           : 1px solid;   
-  border-color     : #e5e6e9 #dfe0e4 #d0d1d5; 
-  border-radius    : 3px;  
-  background-color : #fff;   
-  position         : relative;     
-  margin           : 5px 0;       
-}
+  .back {
+    background-image: url(_bulb.png)
+  }
 
-/* item global style */
-.items{
-  margin     : 0 12px;  
-  padding    : 8px 0; 
-}
+  .note {
+    background-image: url(_pencil.png)
+  }
 
-hr{
-  border     : 0;      
-  margin     : 3px 13px;    
-  border-top : 1px solid #e5e5e5; 
-}
+  .sentence {
+    background-image: url(_clipboard.png)
+  }
 
-/* front & back global style */
-#front, 
-#back{
-  line-height : 1.5em;
-}
+  /*foot style*/
+  .foot {
+    background-image: url(_cloud.png)
+  }
 
-/* front field style */
-#front{
-  font-size  : 36px; 
-  color      : #000;   
-  text-align : left; 
-}
+  /* section global style */
+  .section {
+    border: 1px solid;
+    border-color: #999;
+    border-radius: 3px;
+    background-color: #000;
+    position: relative;
+    margin: 5px 0;
+  }
 
-#front span{
-  display:inline-block;
-  vertical-align:middle;
-}
+  /* item global style */
+  .items {
+    margin: 0 12px;
+    padding: 8px 0;
+  }
 
-#front img{
-  width:36px;
-  height:36px;
-  top: 6px;
-  position:relative;
-  margin-left: 10px;
-}
+  hr {
+    border: 0;
+    margin: 3px 13px;
+    border-top: 1px solid #666;
+  }
 
-/* back field style */
-#back{
-  font-size  : 16px;
-  color      : #222;
-  text-align : left;
-}
+  /* front & back global style */
+  #front,
+  #back {
+    line-height: 1.5em;
+  }
 
-/* Tag highlight style */
-.hightlight{
-  font-size         : 12px;
-  border-radius : 4px; 
-  color               : #fff; 
-  padding          : 0 3px;
-  margin-right   : 5px;
-}
+  /* front field style */
+  #front {
+    font-size: 36px;
+    color: #ddd;
+    text-align: left;
+  }
 
-/* phonetic style */
-#phonetic{
-  font-size     : 14px;
-}
-/*
-#sentence b{
-  font-weight:normal;
-  border-radius:3px;
-  color:#fff;
-  background-color:#222;
-  padding:0 3px;
-}
-*/
-#sentence hr{
-  border     : 0;      
-  margin     : 8px 0px;    
-  border-top : 1px solid #e5e5e5; 
-}
+  #front span {
+    display: inline-block;
+    vertical-align: middle;
+  }
 
-/* version style */
-#version{
-  text-align : center;
-  font-size  :12px;
-}
+  #front img {
+    width: 36px;
+    height: 36px;
+    top: 6px;
+    position: relative;
+    margin-left: 10px;
+  }
+
+  /* back field style */
+  #back {
+    font-size: 16px;
+    color: #ddd;
+    text-align: left;
+  }
+
+  /* Tag highlight style */
+  .hightlight {
+    font-size: 12px;
+    border-radius: 4px;
+    color: #000;
+    padding: 0 3px;
+    margin-right: 5px;
+  }
+
+  /* phonetic style */
+  #phonetic {
+    font-size: 14px;
+  }
+
+  #sentence hr {
+    border: 0;
+    margin: 8px 0px;
+    border-top: 1px solid #333;
+  }
+
+  /* version style */
+  #version {
+    text-align: center;
+    font-size: 12px;
+  }
 </style>
 
 <!-- 
 JS helper functions
 -->
 <script>
-//hide or display hint
-function toggle(e){
-    var box= document.getElementById(e);
-    if(box)
-	if(box.style.display=='none'){
-		box.style.display='block';
-	}
-	else{
-		box.style.display='none';
-	}
-}
+  //hide or display hint
+  function toggle(e) {
+    var box = document.getElementById(e);
+    if (box)
+      if (box.style.display == 'none') {
+        box.style.display = 'block';
+      }
+      else {
+        box.style.display = 'none';
+      }
+  }
 
-//play audio
-function playAudio() {
-    //var base = "http://dict.youdao.com/dictvoice?audio=";
-    var base = "http://fanyi.baidu.com/gettts?lan=en&text=";
-    var word = document.getElementById("front").innerText;
-    var audioSrc = base + encodeURI(word); 
-    //check if it is desktop client
-    if(typeof(py)=="object"){
-    //if it is desktop client, need install addon #498789867 as dependency 
-        py.link("ankiplay"+audioSrc)
-    }else{
-    //mobile client (iOS or Android)
-        var audio=document.getElementById('player')
-        player.src=audioSrc
-        player.play()
-    }
-}
-
-//hotkey T/t to play audio
-function hotPlayAudio(e){
-//Key Code T:84 t:116
-//alert(e.ctrlKey)
- if(!e.ctrlKey &&( e.keyCode==84 || e.keyCode==116)){
-  playAudio()
- }
-}
-
-//save config
-function saveConfig(obj, item){
-    config[item]=obj.checked;
+  //save config
+  function saveConfig(obj, item) {
+    config[item] = obj.checked;
     window.name = JSON.stringify(config);
-}
+  }
 
-//load config
-function loadConfig(){
+  //load config
+  function loadConfig() {
     document.getElementById("audio").checked = config.audio
     document.getElementById("fold").checked = config.fold
     document.getElementById("example").checked = config.example
-}
+  }
 
-//delete HTML element
-function removeTag(tag){
+  //delete HTML element
+  function removeTag(tag) {
     var items = document.querySelectorAll(tag);
-    for(var i = 0; i < items.length; i++){
-        items[i].outerHTML = "";
+    for (var i = 0; i < items.length; i++) {
+      items[i].outerHTML = "";
     }
-}
+  }
 
-//clear WordQuery output Format
-function clearFormat(){
+  //clear WordQuery output Format
+  function clearFormat() {
     var ex = document.querySelectorAll(".explanation_box .text_blue");
-    for(var i = 0; i < ex.length; i++){
-        ex[i].outerHTML = ex[i].outerHTML + "<br>";
+    for (var i = 0; i < ex.length; i++) {
+      ex[i].outerHTML = ex[i].outerHTML + "<br>";
     }
 
     var ex = document.querySelectorAll(".explanation_box .explanation_label");
-    for(var i = 0; i < ex.length; i++){
+    for (var i = 0; i < ex.length; i++) {
 
-        ex[i].innerHTML = ex[i].innerHTML.replace(/.?\[(.+?)[\s|-].+/g,"$1").toLowerCase()+".";
-        //alert(ex[i].innerHTML)
+      ex[i].innerHTML = ex[i].innerHTML.replace(/.?\[(.+?)[\s|-].+/g, "$1").toLowerCase() + ".";
+      //alert(ex[i].innerHTML)
     }
 
     removeTag(".word_header");
     removeTag(".item_number");
-    if (!config.example){
-       removeTag(".explanation_item>ul");
+    if (!config.example) {
+      removeTag(".explanation_item>ul");
     }
-}
+  }
 
-//sample functions: make cloze
-function makeCloze(){
+  //sample functions: make cloze
+  function makeCloze() {
     var bb = document.querySelectorAll("#back b");
-    for(var i = 0; i < bb.length; i++){
-        bb[i].innerHTML = "____";
+    for (var i = 0; i < bb.length; i++) {
+      bb[i].innerHTML = "____";
     }
-}
+  }
 
-//sample functions: highlight tag
-function highlightTag(){
+  //sample functions: highlight tag
+  function highlightTag() {
     var colorMap = {
-        'n.':'#e3412f',
-        'a.':'#f8b002',
-        'adj.':'#f8b002',
-        'ad.':'#684b9d',
-        'adv.':'#684b9d',
-        'v.':'#539007',
-        'vi.':'#539007',
-        'vt.':'#539007',
-        'verb.':'#539007',
-        'phrase.':'#04B7C9',
-        'prep.':'#04B7C9',
-        'conj.':'#04B7C9',
-        'pron.':'#04B7C9',
-        'art.':'#04B7C9',
-        'num.':'#04B7C9',
-        'int.':'#04B7C9',
-        'interj.':'#04B7C9',
-        'modal.':'#04B7C9',
-        'aux.':'#04B7C9',
-        'pl.':'#D111D3',
-        'abbr.':'#D111D3',
+      'n.': '#e3412f',
+      'a.': '#f8b002',
+      'adj.': '#f8b002',
+      'ad.': '#684b9d',
+      'adv.': '#684b9d',
+      'v.': '#539007',
+      'vi.': '#539007',
+      'vt.': '#539007',
+      'verb.': '#539007',
+      'phrase.': '#04B7C9',
+      'prep.': '#04B7C9',
+      'conj.': '#04B7C9',
+      'pron.': '#04B7C9',
+      'art.': '#04B7C9',
+      'num.': '#04B7C9',
+      'int.': '#04B7C9',
+      'interj.': '#04B7C9',
+      'modal.': '#04B7C9',
+      'aux.': '#04B7C9',
+      'pl.': '#D111D3',
+      'abbr.': '#D111D3',
     };
-    [].forEach.call(document.querySelectorAll('#back'), function(div) {
-        div.innerHTML = div.innerHTML.replace(/\b[a-z]+\./g, function(symbol) {
-            if(colorMap[symbol]) {
-                return '<a class="hightlight" style="background-color:' 
-                             + colorMap[symbol] + ';" >'+ symbol + '</a>';
-            } else {
-                return symbol;
-            }
-        });
+    [].forEach.call(document.querySelectorAll('#back'), function (div) {
+      div.innerHTML = div.innerHTML.replace(/\b[a-z]+\./g, function (symbol) {
+        if (colorMap[symbol]) {
+          return '<a class="hightlight" style="background-color:'
+            + colorMap[symbol] + ';" >' + symbol + '</a>';
+        } else {
+          return symbol;
+        }
+      });
     });
-}
+  }
 
 </script>
 
