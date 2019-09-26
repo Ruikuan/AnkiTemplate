@@ -162,6 +162,14 @@ inspired by: https://github.com/ecator/
     border-top: 1px solid #333;
   }
 
+  .tran .chn_tran {
+    color: #d1ba6c;
+  }
+
+  .sent .chn_sent {
+    color: #d1ba6c;
+  }
+
   /* version style */
   #version {
     text-align: center;
@@ -269,14 +277,6 @@ JS helper functions
         }
       });
     });
-  }
-
-  function hardsetChnColor(className, color) {
-    var chnSpans = document.getElementsByClassName(className);
-    for (var i = 0; i < chnSpans.length; i++) {
-      var chnSpan = chnSpans[i];
-      chnSpan.style.cssText = 'color: ' + color;
-    }
   }
 </script>
 
