@@ -4,14 +4,14 @@
 
 {{#sentence}}
 <div class="section">
-<div id="sentence" class="items">{{sentence}}</div>
+  <div id="sentence" class="items">{{sentence}}</div>
 </div>
 {{/sentence}}
 
 {{#glossary}}
 <div class="section">
-<div class="bar note" onclick="toggle('back')">Glossary</div>
-<div id="back" class="items">{{glossary}}</div>
+  <div class="bar note" onclick="toggle('back')">Glossary</div>
+  <div id="back" class="items">{{glossary}}</div>
 </div>
 {{/glossary}}
 
@@ -19,8 +19,8 @@
 
 {{#notes}}
 <div class="section">
-<div class="bar note" onclick="toggle('note')">Notes</div>
-<div id="note" class="items">{{notes}}</div>
+  <div class="bar note" onclick="toggle('note')">Notes</div>
+  <div id="note" class="items">{{notes}}</div>
 </div>
 {{/notes}}
 
@@ -32,17 +32,17 @@
 </div>
 {{audio}}
 <script type="text/javascript">
-//customzied format function
-clearFormat();
+  //customzied format function
+  clearFormat();
 
-//hide hint based on config
-if(config.fold){
-    toggle('note'); 
+  //hide hint based on config
+  if (config.fold) {
+    toggle('note');
     toggle('back');
-}
+  }
 
-//sample function
-highlightTag()
+  //sample function
+  highlightTag()
 
 //sample function
 //makeCloze()

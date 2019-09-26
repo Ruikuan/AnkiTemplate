@@ -9,7 +9,7 @@ inspired by: https://github.com/ecator/
   if (typeof (config) == "undefined") {
     var config = {};
     //audio autoplay
-    config.audio = false;
+    config.audio = true;
 
     //hide or display hint section
     config.fold = true;
@@ -21,7 +21,6 @@ inspired by: https://github.com/ecator/
 
     window.name = JSON.stringify(config);
   }
-
 </script>
 
 <style>
@@ -149,6 +148,14 @@ inspired by: https://github.com/ecator/
     font-size: 14px;
   }
 
+  #sentence b {
+    font-weight: normal;
+    border-radius: 3px;
+    color: #d9d9d9;
+    background-color: #666;
+    padding: 0 3px;
+  }
+
   #sentence hr {
     border: 0;
     margin: 8px 0px;
@@ -256,7 +263,7 @@ JS helper functions
     [].forEach.call(document.querySelectorAll('#back'), function (div) {
       div.innerHTML = div.innerHTML.replace(/\b[a-z]+\./g, function (symbol) {
         if (colorMap[symbol]) {
-          return '<a class="highlight" style="color: #eee; background-color:' + colorMap[symbol] + ';" >' + symbol + '</a>';
+          return '<a class="highlight" style="color: #eee; background-color: ' + colorMap[symbol] + ';" >' + symbol + '</a>';
         } else {
           return symbol;
         }

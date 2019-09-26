@@ -8,7 +8,6 @@ inspired by: https://github.com/ecator/
   //declare global var config
   if (typeof (config) == "undefined") {
     var config = {};
-
     //audio autoplay
     config.audio = true;
 
@@ -16,7 +15,7 @@ inspired by: https://github.com/ecator/
     config.fold = true;
 
     //other config might be added
-    config.example = false;
+    config.example = true;
 
     config.version = '1.0';
 
@@ -138,7 +137,7 @@ inspired by: https://github.com/ecator/
   .highlight {
     font-size: 12px;
     border-radius: 4px;
-    color:#d9d9d9;
+    color: #f2f2f2;
     padding: 0 3px;
     margin-right: 5px;
     font-weight: bold;
@@ -155,6 +154,12 @@ inspired by: https://github.com/ecator/
     color: #d9d9d9;
     background-color: #666;
     padding: 0 3px;
+  }
+
+  #sentence hr {
+    border: 0;
+    margin: 8px 0px;
+    border-top: 1px solid #333;
   }
 
   /* version style */
