@@ -271,6 +271,13 @@ JS helper functions
     });
   }
 
+  function hardsetChnColor(className, color) {
+    var chnSpans = document.getElementsByClassName(className);
+    for (var i = 0; i < chnSpans.length; i++) {
+      var chnSpan = chnSpans[i];
+      chnSpan.style.cssText = 'color: ' + color;
+    }
+  }
 </script>
 
 <style>
